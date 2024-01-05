@@ -7,7 +7,13 @@ const upload = multer({ dest: 'uploads/' });
 const app = express();
 const port = 3001;
 
-app.use(cors());
+app.use(cors(
+  {
+    origin: ["https://mern-flipper.vercel.app"],
+    methods: ["POST", "GET"],
+    credentials: true
+  }
+));
 app.use(bodyParser.json());
 
 app.post('/olustur-excel', (req, res) => {
