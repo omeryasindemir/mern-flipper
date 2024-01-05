@@ -9,7 +9,7 @@ const port = 3001;
 
 app.use(cors(
   {
-    origin: "https://mern-flipper.vercel.app"
+    origin: "https://mern-flipper.vercel.app:5173"
   }
 ));
 app.use(bodyParser.json());
