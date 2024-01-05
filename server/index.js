@@ -9,7 +9,7 @@ const port = 3001;
 
 app.use(cors(
   {
-    origin: ["https://mern-flipper-api.vercel.app"],
+    origin: ["https://mern-flipper.vercel.app"],
     methods: ["POST", "GET"],
     credentials: true
   }
