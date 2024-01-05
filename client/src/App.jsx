@@ -106,7 +106,7 @@ function App() {
       const formData = new FormData();
       formData.append('dosya', file);
 
-      const response = await axios.post('https://mern-flipper-api.vercel.app:3001/yukle-excel', formData);
+      const response = await axios.post('https://mern-flipper-api.vercel.app/yukle-excel', formData);
       const { data } = response;
 
       setUsers([...users, ...data]);
@@ -119,7 +119,7 @@ function App() {
   const handleSubmit = async (e) => {
     e.preventDefault();
     try {
-      const response = await axios.post('https://mern-flipper-api.vercel.app:3001/olustur-excel', { data: users }, { responseType: 'blob' });
+      const response = await axios.post('https://mern-flipper-api.vercel.app/olustur-excel', { data: users }, { responseType: 'blob' });
       const blob = new Blob([response.data], { type: 'application/vnd.openxmlformats-officedocument.spreadsheetml.sheet' });
       const link = document.createElement('a');
       link.href = window.URL.createObjectURL(blob);

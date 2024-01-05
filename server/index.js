@@ -5,13 +5,11 @@ const cors = require('cors');
 const multer = require('multer');
 const upload = multer({ dest: 'uploads/' });
 const app = express();
-const port = 3001;
+const port = 5000;
 
-app.use(cors(
-  {
-    origin: "https://mern-flipper.vercel.app:5173"
-  }
-));
+app.use(cors({
+  origin: "*"
+}));
 app.use(bodyParser.json());
 
 app.post('/olustur-excel', (req, res) => {
