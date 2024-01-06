@@ -1,11 +1,13 @@
 const express = require('express');
 const bodyParser = require('body-parser');
 const xlsx = require('xlsx');
+const cors = require('cors');
 const multer = require('multer');
 const upload = multer({ dest: 'uploads/' });
 const app = express();
 const port = 3001;
 
+app.use(cors());
 app.use(bodyParser.json());
 
 app.post('/olustur-excel', (req, res) => {

@@ -1,0 +1,9 @@
+{
+    "routes": [
+      {
+        "src": "/olustur-excel",
+        "dest": "https://mern-flipper-api.vercel.app/olustur-excel"
+      }
+    ]
+  }
+  
