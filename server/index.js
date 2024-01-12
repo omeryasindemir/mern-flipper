@@ -14,9 +14,9 @@ app.post('/olustur-excel', (req, res) => {
   const { data } = req.body;
   const ws = xlsx.utils.json_to_sheet(data);
   const wb = xlsx.utils.book_new();
-  xlsx.utils.book_append_sheet(wb, ws, 'Kullanicilar');
-  xlsx.writeFile(wb, 'kullanicilar.xlsx');
-  res.download('kullanicilar.xlsx');
+  xlsx.utils.book_append_sheet(wb, ws, 'Projeler');
+  xlsx.writeFile(wb, 'proje-listesi.xlsx');
+  res.download('proje-listesi.xlsx');
 });
 
 app.post('/yukle-excel', upload.single('dosya'), (req, res) => {

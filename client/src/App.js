@@ -55,15 +55,15 @@ function PreferenceModal({ availableFields, onClose, onSave }) {
 }
 
 function App() {
-  const [users, setUsers] = useState(JSON.parse(localStorage.getItem('kullanicilar')) || []);
+  const [users, setUsers] = useState(JSON.parse(localStorage.getItem('proje-listesi')) || []);
   const [formData, setFormData] = useState({});
   const [editingIndex, setEditingIndex] = useState(null);
   const [file, setFile] = useState(null);
-  const [availableFields, setAvailableFields] = useState(['ad', 'soyad', 'yas', 'cinsiyet', 'memleket']);
+  const [availableFields, setAvailableFields] = useState(['Proje Adı', 'Proje Tipi', 'Proje Konusu', 'Proje Açıklaması', 'Proje ID']);
   const [showPreferencesModal, setShowPreferencesModal] = useState(true);
 
   useEffect(() => {
-    localStorage.setItem('kullanicilar', JSON.stringify(users));
+    localStorage.setItem('proje-listesi', JSON.stringify(users));
   }, [users]);
 
   const handleChange = (e) => {
@@ -123,7 +123,7 @@ function App() {
       const blob = new Blob([response.data], { type: 'application/vnd.openxmlformats-officedocument.spreadsheetml.sheet' });
       const link = document.createElement('a');
       link.href = window.URL.createObjectURL(blob);
-      link.download = 'kullanicilar.xlsx';
+      link.download = 'proje-listesi.xlsx';
       link.click();
     } catch (error) {
       console.error('Excel dosyası oluşturulurken hata oluştu', error);
@@ -163,7 +163,7 @@ function App() {
               </div>
             ))}
             <button type="button" className="btn btn-primary" onClick={handleAddUser}>
-              {editingIndex !== null ? 'Kullanıcıyı Düzenle' : 'Kullanıcı Ekle'}
+              {editingIndex !== null ? 'Projeyi Düzenle' : 'Proje Ekle'}
             </button>
             <button type="submit" className="btn btn-success ms-2">
               Excel Oluştur
@@ -176,7 +176,7 @@ function App() {
             Excel Yükle
           </button>
           <div className="mt-3">
-            <h2>Kullanıcı Listesi:</h2>
+            <h2>Proje Listesi:</h2>
             <ul className="list-group">
               {users.map((user, index) => (
                 <li key={index} className="list-group-item">
